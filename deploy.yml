@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: users-webapp-deployment
+  labels:
+    app: users-webapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: users-webapp
+  template:
+    metadata:
+      labels:
+        app: users-webapp
+    spec:
+      containers:
+      - name: users-webapp
+        image: oscarsaavedra12/usuariosapp:latest
+        ports:
+        - containerPort: 80
