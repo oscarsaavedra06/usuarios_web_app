@@ -5,6 +5,7 @@ metadata:
 spec:
   selector:
     app: users-webapp
+    tier: frontend
   ports:
   - port: 80
     targetPort: 80

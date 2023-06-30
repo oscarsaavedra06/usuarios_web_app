@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const API_URL = 'http://localhost:3000/users';
+const API_URL = 'http://api/';
 
 const App = () => {
   const [users, setUsers] = useState([]);

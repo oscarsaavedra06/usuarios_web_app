@@ -5,14 +5,16 @@ metadata:
   labels:
     app: users-webapp
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: users-webapp
+      tier: frontend
   template:
     metadata:
       labels:
         app: users-webapp
+        tier: frontend
     spec:
       containers:
       - name: users-webapp
