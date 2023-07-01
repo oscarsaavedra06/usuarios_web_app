@@ -49,7 +49,7 @@ jobs:
         uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-      - name: Save DigitalOcean kubeconfig with short-lived credentials
+      - name: DigitalOcean kubeconfig credentials
         run: doctl kubernetes cluster kubeconfig save --expiry-seconds 600 f74e3210-45c3-4484-8bd6-bb177dc2d973
       - name: Create deploy
         run: kubectl apply -f $GITHUB_WORKSPACE/deploy.yml
