@@ -6,27 +6,18 @@ on:
     
 name: CI/CD Pipeline
 
-jobs:
-  pre-build:
-    name: Pre build steps
+jobs:   
+  build:
+    name: Build and Push DH
     runs-on: ubuntu-latest
-
+    
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
       - run: npm install
-      #- run: npm run test:ci
       - run: sudo npm run build
-        
-  build:
-    name: Build and Push DH
-    runs-on: ubuntu-latest
-    needs: pre-build
-    
-    steps:
-      - uses: actions/checkout@v3
       - name: docker login
         env: 
           DOCKER_USER: ${{secrets.DOCKER_USER}}
