@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const API_URL = 'http://api/';
+const API_URL = 'http://localhost:80/users';
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -89,7 +89,7 @@ const App = () => {
 
   return (
     <div className="container mt-4">
-      <h1>User CRUD App</h1>
+      <h1>Usuarios CRUD App Demo</h1>
 
       <form
         onSubmit={(e) => {
@@ -102,7 +102,7 @@ const App = () => {
         }}
       >
         <div className="mb-3">
-          <label className="form-label">Name</label>
+          <label className="form-label">Nombre</label>
           <input
             type="text"
             className="form-control"
@@ -125,25 +125,25 @@ const App = () => {
           {editingUserId ? (
             <>
               <button type="submit" className="btn btn-primary">
-                Update User
+                Actualizar usuario
               </button>
               <button
                 type="button"
                 className="btn btn-secondary"
                 onClick={cancelEdit}
               >
-                Cancel
+                Cancelar
               </button>
             </>
           ) : (
             <button type="submit" className="btn btn-primary">
-              Create User
+              Crear usuario
             </button>
           )}
         </div>
       </form>
 
-      <h2 className="mt-4">Users</h2>
+      <h2 className="mt-4">Usuarios</h2>
 
       <ul className="list-group mt-2">
         {users.map((user) => (
@@ -159,13 +159,13 @@ const App = () => {
                 className="btn btn-primary btn-sm me-2"
                 onClick={() => editUser(user)}
               >
-                Edit
+                Editar
               </button>
               <button
                 className="btn btn-danger btn-sm"
                 onClick={() => deleteUser(user._id)}
               >
-                Delete
+                Eliminar
               </button>
             </div>
           </li>
